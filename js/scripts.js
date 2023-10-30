@@ -51,24 +51,22 @@ function showMe(e) {
     const divRow = document.createElement("div");
     divRow.setAttribute("class", "row")
     const divRow1 = document.createElement("div");
-    divRow1.setAttribute("class", "col");
+    divRow1.setAttribute("class", "col text-center border rounded m-1");
     const div2 = document.createElement("div")
     div2.setAttribute("class", "col")
     const div3 = document.createElement("div")
     div3.setAttribute("class", "col")
     const h2 = document.createElement("h2");
     const img = document.createElement("img");
-    
-    div.setAttribute("class", "container col border rounded p-2")
+    div.setAttribute("class", "w-50 container col border rounded p-2")
     h2.append(placeObject.title)
     divRow1.append(h2)
-    
     divRow.append(div2)
     divRow.append(div3)
     div.append(divRow1)
     div.append(divRow)
     if (placeObject.imageURL.trim() !== "") {
-    img.setAttribute("class", "img-fluid")
+    img.setAttribute("class", "img-fluid rounded")
     img.setAttribute("alt", placeObject.title)
     img.setAttribute("src", placeObject.imageURL)
     div2.append(img)
@@ -88,11 +86,6 @@ function showMe(e) {
     let liNotes = document.createElement("li");
     liNotes.append(placeObject.notes);
     ul.append(liNotes);
-    // for (const element of Object.values(placeObject)) {
-    //     let li = document.createElement("li");
-    //     li.append(element);
-    //     ul.append(li);
-    // };
 }
 
 function printPlaceName(id) {
