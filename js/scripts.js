@@ -41,8 +41,18 @@ function Place(title, address, category, season, notes, imageURL) {
 
 // UI Logic
 
-function printPlaceName(place) {
-    ``
+function printPlaceName(id) {
+    const mainDiv = document.getElementById("main-div")
+    const name = portland.places[id].title
+    const button = document.createElement("button")
+    button.setAttribute("type", "submit")
+    button.setAttribute("id", "city")
+    button.setAttribute("value", id)
+    button.setAttribute("class", "btn btn-primary m-1")
+    button.append(name)
+    mainDiv.append(button)
+    
+    
 }
 
 function handleFormSubmission(e) {
@@ -55,7 +65,7 @@ function handleFormSubmission(e) {
     const imageURL = document.getElementById("imageURL").value;
     const place = new Place(placeName, address, category, season, notes, imageURL);
     portland.addPlace(place);
-    printPlaceName(place);
+    printPlaceName(portland.currentId);
 }
 
 function pageInteractive() {
