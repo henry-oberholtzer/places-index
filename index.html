@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <script src="./js/scripts.js"></script>
+        <title>Places in Portland</title>
+    </head>
+    <body>
+        <div>
+            <h1>Places in Portland</h1>
+        </div>
+        <div>
+            <p>Tell us about a place in Portland you've been!</p>
+        </div>
+        <div>
+            <form id="form">
+                <label for="placeName">Name of Place</label>
+                <input type="text" id="placeName"><br>
+                <label for="address">Where this place be?</label>
+                <input type="text" id="address"><br>
+                <label for="category">What does this fall under?</label><br>
+                <select id="category">
+                    <option value="park">Park</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="other">Misc.</option>
+                </select><br>
+                <label for="season">What season should you go?</label><br>
+                <select id="season">
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                    <option value="fall">Fall</option>
+                    <option value="winter">Winter</option>
+                </select><br>
+                <label for="notes">Tell me about this place:</label>
+                <input type="text" id="notes"><br>
+                <label for="imageURL">Plz send pic!</label>
+                <input type="text" id="imageURL"><br><br>
+                <button type="submit">Show me your place!</button>
+            </form>
+        </div>
+    </body>
+</html>

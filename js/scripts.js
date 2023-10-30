@@ -1,3 +1,5 @@
+// Database
+const portland = new CityIndex();
 
 // Portland Logic
 function CityIndex() {
@@ -28,12 +30,38 @@ CityIndex.prototype.findPlace = function(id) {
     return false;
 };
 // Place Logic
-function Place(title, address, category, timeToVisit, notes, imageURL) {
+function Place(title, address, category, season, notes, imageURL) {
     this.title = title;
     this.address = address;
     this.category = category;
-    this.timeToVisit = timeToVisit;
+    this.season = season;
     this.notes = notes;
     this.imageURL = imageURL;
 }
 
+// UI Logic
+
+function printPlaceName(place) {
+    ``
+}
+
+function handleFormSubmission(e) {
+    e.preventDefault();
+    const placeName = document.getElementById("placeName").value;
+    const address = document.getElementById("address").value;
+    const category = document.getElementById("category").value;
+    const season = document.getElementById("season").value;
+    const notes = document.getElementById("notes").value;
+    const imageURL = document.getElementById("imageURL").value;
+    const place = new Place(placeName, address, category, season, notes, imageURL);
+    portland.addPlace(place);
+    printPlaceName(place);
+}
+
+function pageInteractive() {
+    
+    const form = document.getElementById("form");
+    form.addEventListener("submit", handleFormSubmission);
+};
+
+window.addEventListener("load", pageInteractive);
