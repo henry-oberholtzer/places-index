@@ -6,6 +6,7 @@ function CityIndex() {
     this.places = {};
     this.currentId = 0;
 }
+
 CityIndex.prototype.assignId = function() {
     this.currentId +=1;
     return this.currentId;
@@ -42,8 +43,30 @@ function Place(title, address, category, season, notes, imageURL) {
 // UI Logic
 
 function showMe(e) {
+    document.getElementById("places").innerHTML = null;
     const id = e.target.getAttribute("value");
-    console.log(portland.places[id].title);
+    const placeObject = portland.places[id]
+    const place = document.getElementById("places")
+    const div = document.createElement("div");
+    const h2 = document.createElement("h2");
+    const img = document.createElement("img");
+    h2.append(portland.places[id].title)
+    div.setAttribute("class", "container col border rounded")
+    div.append(h2)
+    if (placeObject.imageURL.trim() !== "") {
+    img.setAttribute("class", "img-fluid")
+    img.setAttribute("alt", placeObject.title)
+    img.setAttribute("src", placeObject.imageURL)
+    div.append(img)
+    }
+    place.append(div)
+    const ul = document.createElement("ul");
+    div.append(ul);
+    for (const element of Object.values(placeObject)) {
+        let li = document.createElement("li");
+        li.append(element);
+        ul.append(li);
+    };
 }
 
 function printPlaceName(id) {
@@ -71,9 +94,7 @@ function handleFormSubmission(e) {
         const place = new Place(placeName, address, category, season, notes, imageURL);
         portland.addPlace(place);
         printPlaceName(portland.currentId);
-
-    }
-    
+    }    
 }
 
 function pageInteractive() {
