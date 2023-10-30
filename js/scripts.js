@@ -48,25 +48,51 @@ function showMe(e) {
     const placeObject = portland.places[id]
     const place = document.getElementById("places")
     const div = document.createElement("div");
+    const divRow = document.createElement("div");
+    divRow.setAttribute("class", "row")
+    const divRow1 = document.createElement("div");
+    divRow1.setAttribute("class", "col");
+    const div2 = document.createElement("div")
+    div2.setAttribute("class", "col")
+    const div3 = document.createElement("div")
+    div3.setAttribute("class", "col")
     const h2 = document.createElement("h2");
     const img = document.createElement("img");
-    h2.append(portland.places[id].title)
-    div.setAttribute("class", "container col border rounded")
-    div.append(h2)
+    
+    div.setAttribute("class", "container col border rounded p-2")
+    h2.append(placeObject.title)
+    divRow1.append(h2)
+    
+    divRow.append(div2)
+    divRow.append(div3)
+    div.append(divRow1)
+    div.append(divRow)
     if (placeObject.imageURL.trim() !== "") {
     img.setAttribute("class", "img-fluid")
     img.setAttribute("alt", placeObject.title)
     img.setAttribute("src", placeObject.imageURL)
-    div.append(img)
+    div2.append(img)
     }
     place.append(div)
     const ul = document.createElement("ul");
-    div.append(ul);
-    for (const element of Object.values(placeObject)) {
-        let li = document.createElement("li");
-        li.append(element);
-        ul.append(li);
-    };
+    div3.append(ul);
+    let liAddress = document.createElement("li");
+    liAddress.append(placeObject.address);
+    ul.append(liAddress);
+    let liCategory = document.createElement("li");
+    liCategory.append(placeObject.category);
+    ul.append(liCategory);
+    let liSeason = document.createElement("li");
+    liSeason.append(placeObject.season);
+    ul.append(liSeason);
+    let liNotes = document.createElement("li");
+    liNotes.append(placeObject.notes);
+    ul.append(liNotes);
+    // for (const element of Object.values(placeObject)) {
+    //     let li = document.createElement("li");
+    //     li.append(element);
+    //     ul.append(li);
+    // };
 }
 
 function printPlaceName(id) {
@@ -76,7 +102,7 @@ function printPlaceName(id) {
     button.setAttribute("type", "button")
     button.setAttribute("id", "city")
     button.setAttribute("value", id)
-    button.setAttribute("class", "btn btn-primary m-1")
+    button.setAttribute("class", "btn btn-primary m-4")
     button.append(name)
     mainDiv.append(button) 
     button.addEventListener("click", showMe);
